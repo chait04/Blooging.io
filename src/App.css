@@ -1,38 +1,157 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand";
+}
+
+.navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  max-width: 1280px;
+  border-bottom: 1px solid #f2f2f2;
+  margin: 0 auto;
+}
+
+.navbar h1 {
+  color: #f1356d;
+}
+
+.active{
+  background-color: #ff8bae;
+  color: #fff;
+  border-radius: 8px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.navbar .links {
+  display: flex;
+  margin-left: auto;
+}
+
+.navbar a {
+  margin-left: 16px;
+}
+
+.navbar a:hover {
+  color: #f1356d;
+  background-color: #fff;
+}
+
+.content {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar {
+    max-width: 800px;
+  }
+  .content {
+    max-width: 600px;
+  }
+}
+
+/* Blogs  / list */
+
+.blogPreview {
+  padding: 10px 16px;
+  margin: 20px 0;
+}
+
+.blogPreview:hover {
+  box-shadow: 1px 3px 5px rgb(0, 0,0 , 0.2);
+}
+
+.blogList h1 {
+  color: #52031b;
+}
+
+
+.blogPreview h2 {
+  color: #f1356d;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Blog details - Page */
+
+.blogDetails h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+
+.blogDetails div {
+  padding: 10px;
+}
+
+.blogDetails button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Create Page css */
+
+.create {
+  max-width: 400px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.create label {
+  text-align: left;
+  display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.create input,
+.create textarea,
+.create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  outline: none;
+  border: 1px solid #f79eb9;
 }
 
-.App-link {
-  color: #61dafb;
+.create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  outline: none;
+  border-radius: 13px;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Body scroll bar */
+
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(246, 197, 236, 0.3); /* color of the tracking area */
+  border-radius: 60px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #f1356d; /* color of the scroll thumb */
+  border-radius: 40px; /* roundness of the scroll thumb */
 }

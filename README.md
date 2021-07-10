@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# React Tips
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Css
+- Adding external css file `import "./App.css"`
+- Inline css `style={{ color: "red", backgroundColor: "pink" }}`
 
-## Available Scripts
+## Hooks
+> useState: react need to render the component to show the change, so to this we have useState Hook
 
-In the project directory, you can run:
+`const [name, setName] = useState("jaduu")`
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Devtools
+- You can see state change in components
+- chagne values of state in devtools it will get updated on screen.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Props
+- Pass some values from parent to child, You can not pass something from child to parent
+- passing blogs from parrent to child
 
-### `npm test`
+## Filter
+- `filter()` if the id we pass it didnt match to the given id then the value which is returning will get stored in new variable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   <hr style={{ marginBottom: "8px" }} />
+      <BlogList
+        data={data.filter((blog) => blog.author === "chaitanya")}
+        title="Chaitanya's Blogs"
+      />
+      <hr style={{ marginBottom: "8px" }} />
 
-### `npm run build`
+      <BlogList
+        data={data.filter((blog) => blog.author === "Kaju")}
+        title="Kaju's Blogs"
+      />
+       <button onClick={handleChange}>Change name: {name}</button> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- <code> let newArr = array.filter((el) => el !== 4) </code>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## UseEffect
+- This function runs when something is updated
+- We pass empty [] as 2nd parameter to run this function only once
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Json server
+- `npx json-server --watch data/data.json --port 8000`
+When we invoke a function it gets pushed in the call stack.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Fetch
+- fetch will take some time to give us data, so we are adding `&&` to check wether data is there or not.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ` { blogs && <BlogsList /> } ` If blogs are true only then it will move to right hand side code.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Loading
+- If data is not render yet then shoe render
+- { loading && <div>Loading... </div> }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## try and catch
+- added error handling in fetchdata  function .
+- used `throw` keyword to give error when `res.ok` is false
+- displayed this error on screen using `{ error && <div>{error}</div> }`
 
-## Learn More
+## Custom Hook
+- lets asume we want to use that fetch and useEffect in another component,
+so we cant just do that we need to rewrite the whole thing again..
+- To avoid this we have custom hooks
+- These hooks start from useFetch.
+- we removed all data from Home.jsx (async function and all useStates)
+- added them in useFetch.jsx
+- changing blogs => data, coz if wer're using this hook some other place then we dont want the state to have blogs variable
+- now to use the state from useFetch in another component we need to return it first.
+- `return { data, error, loading } `
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Routing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- First you need to wrap your whole component with `Router`
+-  `Switch` This chesks if the given route matches any route or not, if yes then it will give us first matching route from the switch
+- `Route` - render the given component on given path.
+- Now when you click on links it is sending a fresh request to server again, coz we used a`href` there
+- To avoid this we have `<Link>` tag in `react-router`
 
-### Code Splitting
+## Clenup in useEffect
+- If we change the route before data is fetched then we getr error
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- we just need to return a callback function after data is fetched
+<code> return () => console.log(`ckeared`)</code>
 
-### Analyzing the Bundle Size
+- We have one property to this called abortController
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- const abortCont = new AbortController()
 
-### Making a Progressive Web App
+- `{ signal: abortCont.signal }` add this thing as second parameter in fetch function
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- <code> return () => </code>
 
-### Advanced Configuration
+## Routing again
+- Now if user clicks on any blog then that blog should open with that specific id
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- To do this we have `useParams()` hook
 
-### Deployment
+- In app.jsx added `/:id` to have specific id in each route
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- now when user goes to that spcfic blog again we need to fetch data with his blog.id... now we will reuse our `useFetch()` hook
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
