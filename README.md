@@ -9,7 +9,7 @@
 <p align="center"><strong> ™Blooging.io </strong></p>
 
 <p align="center">
-    <img alt="Blooging.io preview" src="https://cdn.discordapp.com/attachments/717345414671761422/863420329464561715/ScreenRecorderProject24.gif" />
+    <img alt="Blooging.io preview" src="./public/previewGif.gif" />
 </p>
 
 </p>
