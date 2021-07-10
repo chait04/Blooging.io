@@ -1,4 +1,89 @@
-# React Tips
+# Blooging.io
+
+## 👨🏻‍💻👩🏻‍💻 Introduction
+
+<p align="center"> <strong> Blooging site To feature your own blog post in simple way </strong></p>
+
+<br>
+
+<p align="center"><strong> ™Blooging.io </strong></p>
+
+<p align="center">
+    <img alt="Blooging.io preview" src="https://cdn.discordapp.com/attachments/717345414671761422/863420329464561715/ScreenRecorderProject24.gif" />
+</p>
+
+</p>
+<br>
+
+## 🧠 About Project
+
+<p>A free developer blogging platform that allows you to publish articles on your own domain and helps you stay connected with a global developer .</p>
+<br>
+<p>
+If someone wants to save their blog post in such manner that he can read it after sometime or anyone can see it then this is the right platform for that person
+</p>
+
+
+<h1 align="center">Site Preview 🏷 </h1>
+
+
+<p align="center"><strong ><code>Landing Page</code></strong></p>
+
+![LandingPage](./public/landingPage.png)
+
+<br>
+
+<p align="center"><strong>When user clicks on that specific blog</strong></p>
+
+![seperateBlog](./public/seperateBlog.png)
+
+<br>
+
+<p align="center"><strong>When User wants to create new Blog</strong></p>
+
+![creating page](./public/create.png)
+
+<br>
+
+<p align="center"><strong>Responsive and Custom scroll Bar</strong></p>
+
+![mobileView](./public/mobileView.png)
+
+<br>
+<br>
+
+## 📌 TechStack
+
+<ul>
+    <li>Html</li>
+    <li>CSS </li>
+    <li>Javascript </li>
+    <li>React </li>
+    <li>Node.js </li>
+    <li>json-seerver </li>
+</ul>
+
+<br>
+<br>
+
+
+## Contributors 🌟
+
+Thanks goes to these wonderful people ✨✨:
+
+<a href="https://github.com/chait04/Blooging.io/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=chait04/Blooging.io" />
+</a>
+
+<br>
+<br>
+<br>
+
+
+<hr>
+
+
+>React Docs
 
 ## Css
 - Adding external css file `import "./App.css"`
